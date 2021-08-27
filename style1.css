@@ -1,0 +1,52 @@
+@font-face {
+	src: url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+	font-family: caveat, cursive;
+}
+body{
+    background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+}
+
+.head {
+    position: center;
+}
+
+.header {
+    display: flex;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	align-items: center;
+}
+.play-parent{
+    display: flex;
+    
+}
+.play {
+    
+    align-items: center;
+    justify-content: center;
+	padding: 15px;
+    background: red;
+    border:5px double black;
+    border-radius: 0px 20px 0px 20px;
+    width: 20%;
+   
+}
+.bg-music{
+    display: hidden;
+}
+.directions{
+    display: none;
+	background-color: rgba(0,0,0,0.4);
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 1;
+	overflow: auto;
+}
+
+.hiddenClass{
+    display: hidden;
+}
