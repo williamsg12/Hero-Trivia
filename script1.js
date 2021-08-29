@@ -7,12 +7,12 @@ const direction = document.getElementById('rules');
 const theRules = document.querySelector('.directions');
 const closeRules = document.querySelector('.close-rules');
 const htmlQuestion = document.getElementById('question');
-const htmlAnswer = document.getElementById('answer');
+const htmlAnswer = document.getElementById('answer')
 const questions = [
 	(first = {
 		question: "What is the name of Superman's alter ego? ",
 		choices: ['Clark Kent', 'Kal-el', 'Conner Kent', 'Jon Kent'],
-		// answer: this.choices[0]
+		answer: 1
 	}),
 	{
 		question: "What is the name of Thor's alter ego?",
@@ -72,7 +72,7 @@ let score = 0;
 // overall number left
 let questionsLeft = 10;
 let titleDisplay = document.querySelector('.head');
-
+let yourAnswer = ''
 ///////////////     Functions     \\\\\\\\\\\\\\\\\\\
 function startGame(event) {
 	event.preventDefault();
@@ -80,6 +80,7 @@ function startGame(event) {
 	titleDisplay.style.display = 'none';
 	quit.style.display = 'inline';
 	questionCycle(question);
+    answerQuestion()
 }
 
 function increaseScore() {
@@ -91,15 +92,23 @@ function increaseScore() {
 }
 // console.log(questions[0].question)
 function questionCycle() {
-	questions.forEach((question) => {
-		htmlQuestion.innerText = questions[0].question;
-	});
+	for (let question = 0; question < questions.length; question++) {
+        for (let choice = 0; choice < questions.length; choice++) {
+            htmlAnswer.innerText=questions[0].choices
+            
+        }
+        htmlQuestion.innerText= questions[0].question
+    }   
 
-	let choice = document.createElement('li');
-	htmlAnswer.append(choice);
-	questions.forEach((choices) => {
-		choice.append(questions[0].choices);
-	});
+          // questions.forEach((question) => {
+	// 	htmlQuestion.innerText = questions[0].question;
+	// });
+
+	// let choice = document.createElement('li');
+	// htmlAnswer.append(choice);
+	// questions.forEach((choices) => {
+	// 	choice.append(questions[0].choices);
+	// });
 	// console.log(questions['question'])
 	// htmlQuestion.innerText = questions[0].question
 	// htmlAnswer.innerText = questions[0].choices
@@ -108,14 +117,35 @@ function questionCycle() {
 	// question.forEach(element => {
 
 	// });
+
+
+}
+function reset(){
+    score =0
+    questionsLeft =10
+    playButton.style.display='flex'
+    htmlAnswer.innerText=
+    htmlQuestion.innerText=''
+    
 }
 
+function answerQuestion(){
+    yourAnswer= prompt()
+    if (yourAnswer=== questions[0].choices[0]) {
+        console.log(`Your Right!!!!!!`)
+        increaseScore()
+    }
+    else{
+        console.log('Incorrect')
+    }
+}
 function quitting() {
 	let imQuitting = prompt('Are You Sure');
 	if (imQuitting == 'Yes') {
 		score = 0;
 		questionsLeft = 10;
 		playButton.style.display = 'flex';
+
 	}
 }
 
