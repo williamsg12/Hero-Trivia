@@ -46,7 +46,9 @@ body{
 	z-index: 1;
 	overflow: auto;
 }
-
-.hiddenClass{
-    display: hidden;
+.score{
+	font-weight: 300;
+}
+#quit{
+	display: none;
 }

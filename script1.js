@@ -1,98 +1,119 @@
 ///////////// Constant Variables \\\\\\\\\\\\\\\\\
-const playButton = document.querySelector('.play-parent')
+const playButton = document.querySelector('.play-parent');
+const currentScore = document.getElementById('score')
 
-
-const quit =null;
-const direction = document.querySelector('.direction')
-
-const questions =[
-    {
-    question:"What is the name of Superman's alter ego? ",
-    choices:['Clark Kent','Kal-el','Conner Kent','Jon Kent'],
-    // answer: this.choices[0]
-    },
-    {
-    question:"What is the name of Thor's alter ego?",
-    choices:['Donald Blake','Uhtred Ragnarson','Olaf of Freljord','Thor Laufeyson']
-    },
-    // 3:{
-    // question:''
-    // answer:''
-    // },
-    // 4:{
-    // question:''
-    // answer:''
-    // },
-    // 5{
-    // question:''
-    // answer:''
-    // },
-    // 6:{
-    // question:''
-    // answer:''
-    // },
-    // 7:{
-    // question:''
-    // answer:''
-    // },
-    // 8:{
-    // question:''
-    // answer:''
-    // },
-    // 9:{
-    // question:''
-    // answer:''
-    // },
-    // 10:{
-    // question:''
-    // answer:''
-    // },
-
-]
+const quit = document.getElementById('quit');
+const direction = document.getElementById('rules');
+const theRules= document.querySelector('.directions')
+const closeRules= document.querySelector('.close-rules')
+const htmlQuestion = document.getElementById('question')
+const htmlAnswer = document.getElementById('answer')
+const questions = [
+	first ={
+		question: "What is the name of Superman's alter ego? ",
+		choices: ['Clark Kent', 'Kal-el', 'Conner Kent', 'Jon Kent'],
+		// answer: this.choices[0]
+	}
+	// {
+	// 	question: "What is the name of Thor's alter ego?",
+	// 	choices: [
+	// 		'Donald Blake',
+	// 		'Uhtred Ragnarson',
+	// 		'Olaf of Freljord',
+	// 		'Thor Laufeyson',
+	// 	],
+	// },
+	// {
+	// 	question: 'The quater Anodite grandson of Maxwell Tennyson',
+	// 	answer: ['Kevin Levin', 'Ben Tennyson', 'Clyde Fyfe', 'Flash Gordon'],
+	// },
+	// {
+	// question:''
+	// answer:''
+	// },
+	// 5{
+	// question:''
+	// answer:''
+	// },
+	// 6:{
+	// question:''
+	// answer:''
+	// },
+	// 7:{
+	// question:''
+	// answer:''
+	// },
+	// 8:{
+	// question:''
+	// answer:''
+	// },
+	// 9:{
+	// question:''
+	// answer:''
+	// },
+	// 10:{
+	// question:''
+	// answer:''
+	// },
+];
 /////////       State Variables        \\\\\\\\\
-// score
-let score =0
-// questions number
+let score = 0;
 // let questionsNum=0
-// music
 // overall number left
-let questionsLeft = 10
-// quit
-// play
-// direction
-let titleDisplay = document.querySelector('.head')
+let questionsLeft = 10;
+let titleDisplay = document.querySelector('.head');
 
 ///////////////     Functions     \\\\\\\\\\\\\\\\\\\
-function startGame(event){
-    event.preventDefault()
-    playButton.style.display='none'
-    titleDisplay.style.display='none'
-    
+function startGame(event) {
+	event.preventDefault();
+	playButton.style.display = 'none';
+	titleDisplay.style.display = 'none';
+	quit.style.display = 'inline'
+    questionCycle(question)
 }
 
-// function answer{}
-
-function increaseScore(){
-    return score ++
-}
-
-function compareAnswer(answer){
-    if (answer === questions[1]) {
-        increaseScore()
-        questionDisplay.innerText= questions[1].question
-    } else {
-        
+function increaseScore() {
+	score++;
+    currentScore.innerText = `Score:${score}`
+    if(score === 10 ){
+        currentScore.innerText = 'Score:Max'
     }
+}
+// console.log(questions[0].question)
+function questionCycle(){
+    questions.forEach(question => {
+        htmlQuestion.innerText = questions[0].question;
+    });
+
+    let choice =document.createElement('li')
+    htmlAnswer.append(choice)
+    questions.forEach(choices => {
+        choice.append(questions[0].choices)
+    });
+    // console.log(questions['question'])
+    // htmlQuestion.innerText = questions[0].question
+    // htmlAnswer.innerText = questions[0].choices
+    // let choice document.createElement('button')
+    // choices.append
+    // question.forEach(element => {
+        
+    // });
+
 }
 
 // function quit{
-    
+
 // }
-function showDirections(event){
-    event.preventDefault()
-    direction.style.display.toggle()
-}
+
 // function showCorrectAnswer{}
+
+function showDirections() {
+	theRules.style.display= 'inline'
+}
+
+function closeDirections(){
+    theRules.style.display = 'none'
+}
 
 ///////////////     event listeners     \\\\\\\\\\\\\\\\\
 
@@ -100,9 +121,13 @@ function showDirections(event){
 // Music
 // Quit
 // Play
-playButton.addEventListener('click',startGame)
+playButton.addEventListener('click',startGame);
 
-quit
+quit;
 
-direction.addEventListener('click',showDirections)
+direction.addEventListener('click', showDirections);
+
+closeRules.addEventListener('click', closeDirections)
+
+
 // Submit
