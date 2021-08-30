@@ -12,7 +12,7 @@ const questions = [
 	(first = {
 		question: "What is the name of Superman's alter ego? ",
 		choices: ['Clark Kent', 'Kal-el', 'Conner Kent', 'Jon Kent'],
-		answer: 1,
+		answer: 'Clark Kent',
 	}),
 	{
 		question: "What is the name of Thor's alter ego?",
@@ -22,27 +22,27 @@ const questions = [
 			'Olaf of Freljord',
 			'Thor Laufeyson',
 		],
-		answer: 1,
+		answer: 'Donald Blake',
 	},
 	{
 		question: 'The quarter Anodite grandson of Maxwell Tennyson',
 		choices: ['Kevin Levin', 'Ben Tennyson', 'Clyde Fyfe', 'Flash Gordon'],
-		answer: 2,
+		answer: 'Ben Tennyson',
 	},
 	{
 		question: 'The name of the sword weilded by Eragon is ?',
 		choices: ['Riptide', 'Inheretence', 'Brisingr', 'Murtagh'],
-		answer: 3,
+		answer: 'Brisingr',
 	},
 	{
 		question: "Thor's hammer is named?",
 		choices: ['Stormbreaker', 'Mjolnir', 'Laevatinn', 'Chidori'],
-		answer: 2,
+		answer: 'Mjolnir',
 	},
 	{
 		question: "Superman's hometown of smallville is located in what state?",
 		choices: ['Illinois', 'Ohio', 'Kansas', 'Wyoming'],
-		answer: 3,
+		answer: 'Kansas',
 	},
 	{
 		question: 'The main character of the My hero Academia is  ?',
@@ -52,12 +52,12 @@ const questions = [
 			'Izuku Midoriya',
 			'Light Yagami',
 		],
-		answer: 3,
+		answer: 'Izuku Midoriya',
 	},
 	{
 		question: 'Who is the only one that is not a Hero?',
 		choices: ['Hal Jordan', 'Carol Danvers', 'Billy Batson', 'Jonathan Crane'],
-		answer: 4,
+		answer: 'Jonathan Crane',
 	},
 	{
 		question: 'Who was a sidekick to Batman?',
@@ -67,12 +67,12 @@ const questions = [
 			'Victor Stone',
 			'Duke Thomas',
 		],
-		answer: 4,
+		answer: 'Duke Thomas',
 	},
 	{
 		question: 'Who is  a Hero?',
 		choices: ['Wayton Jones', 'Cyrus Gold', 'David Hyde', 'Jaime Reyes'],
-		answer: 4,
+		answer: 'Jaime Reyes',
 	},
 ];
 /////////       State Variables        \\\\\\\\\
@@ -84,12 +84,6 @@ let currentQuestion={}
 let titleDisplay = document.querySelector('.head');
 let yourAnswer = ''
 ///////////////     Functions     \\\\\\\\\\\\\\\\\\\
-questions.forEach(questions => {
-	console.log(questions)
-	// htmlQuestion= questions[question].question
-	// htmlAnswer=questions[choices].choices
-	answerQuestion()
-});
 
 function startGame(event) {
 	event.preventDefault();
@@ -109,9 +103,13 @@ function increaseScore() {
 }
 // console.log(questions[0].question)
 function questionCycle() {
-	for (let i = 0; i < questions.length; i++) {
-        htmlQuestion.innerText= questions[0].question
-    }   
+questions.forEach((questions) => {
+	console.log(questions);
+	// htmlQuestion= questions[question].question
+	// htmlAnswer=questions[choices].choices
+	answerQuestion();
+});
+
 
 }
 function reset(){
@@ -123,14 +121,7 @@ function reset(){
 }
 
 function answerQuestion(){
-    yourAnswer= prompt()
-    if (yourAnswer=== questions[0].choices[0]) {
-        console.log(`Your Right!!!!!!`)
-        increaseScore()
-    }
-    else{
-        console.log('Incorrect')
-    }
+	if()
 }
 function quitting() {
 	let imQuitting = prompt('Are You Sure');
@@ -153,11 +144,8 @@ function closeDirections() {
 }
 
 ///////////////     event listeners     \\\\\\\\\\\\\\\\\
-
-// Directions.addEvent Listener
 // Music
-// Quit
-// Play
+
 playButton.addEventListener('click', startGame);
 
 quit.addEventListener('click', quitting);
@@ -165,5 +153,3 @@ quit.addEventListener('click', quitting);
 direction.addEventListener('click', showDirections);
 
 closeRules.addEventListener('click', closeDirections);
-
-// Submit
