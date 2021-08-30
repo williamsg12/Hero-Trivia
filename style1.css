@@ -7,6 +7,9 @@ body{
 	background-attachment: fixed;
 	background-position: center;
 }
+.QandA{
+	display: none;
+}
 
 .head {
     position: center;
@@ -46,7 +49,7 @@ body{
 	z-index: 1;
 	overflow: auto;
 }
-.score{
+#score{
 	font-weight: 300;
 }
 #quit{

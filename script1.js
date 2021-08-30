@@ -1,7 +1,7 @@
 ///////////// Constant Variables \\\\\\\\\\\\\\\\\
 const playButton = document.querySelector('.play-parent');
 const currentScore = document.getElementById('score');
-
+// const questionsAndAnswer =document.querySelector('.QandA')
 const quit = document.getElementById('quit');
 const direction = document.getElementById('rules');
 const theRules = document.querySelector('.directions');
@@ -12,7 +12,7 @@ const questions = [
 	(first = {
 		question: "What is the name of Superman's alter ego? ",
 		choices: ['Clark Kent', 'Kal-el', 'Conner Kent', 'Jon Kent'],
-		answer: 1
+		answer: 1,
 	}),
 	{
 		question: "What is the name of Thor's alter ego?",
@@ -22,25 +22,27 @@ const questions = [
 			'Olaf of Freljord',
 			'Thor Laufeyson',
 		],
-        answer:1
+		answer: 1,
 	},
 	{
 		question: 'The quarter Anodite grandson of Maxwell Tennyson',
 		choices: ['Kevin Levin', 'Ben Tennyson', 'Clyde Fyfe', 'Flash Gordon'],
-        answer:2 
+		answer: 2,
 	},
 	{
 		question: 'The name of the sword weilded by Eragon is ?',
 		choices: ['Riptide', 'Inheretence', 'Brisingr', 'Murtagh'],
-        answer:3
+		answer: 3,
 	},
 	{
 		question: "Thor's hammer is named?",
 		choices: ['Stormbreaker', 'Mjolnir', 'Laevatinn', 'Chidori'],
+		answer: 2,
 	},
 	{
 		question: "Superman's hometown of smallville is located in what state?",
 		choices: ['Illinois', 'Ohio', 'Kansas', 'Wyoming'],
+		answer: 3,
 	},
 	{
 		question: 'The main character of the My hero Academia is  ?',
@@ -50,10 +52,12 @@ const questions = [
 			'Izuku Midoriya',
 			'Light Yagami',
 		],
+		answer: 3,
 	},
 	{
 		question: 'Who is the only one that is not a Hero?',
 		choices: ['Hal Jordan', 'Carol Danvers', 'Billy Batson', 'Jonathan Crane'],
+		answer: 4,
 	},
 	{
 		question: 'Who was a sidekick to Batman?',
@@ -63,10 +67,12 @@ const questions = [
 			'Victor Stone',
 			'Duke Thomas',
 		],
+		answer: 4,
 	},
 	{
 		question: 'Who is  a Hero?',
-		choices: [''],
+		choices: ['Wayton Jones', 'Cyrus Gold', 'David Hyde', 'Jaime Reyes'],
+		answer: 4,
 	},
 ];
 /////////       State Variables        \\\\\\\\\
@@ -74,9 +80,17 @@ let score = 0;
 // let questionsNum=0
 // overall number left
 let questionsLeft = 10;
+let currentQuestion={}
 let titleDisplay = document.querySelector('.head');
 let yourAnswer = ''
 ///////////////     Functions     \\\\\\\\\\\\\\\\\\\
+questions.forEach(questions => {
+	console.log(questions)
+	// htmlQuestion= questions[question].question
+	// htmlAnswer=questions[choices].choices
+	answerQuestion()
+});
+
 function startGame(event) {
 	event.preventDefault();
 	playButton.style.display = 'none';
@@ -96,39 +110,15 @@ function increaseScore() {
 // console.log(questions[0].question)
 function questionCycle() {
 	for (let i = 0; i < questions.length; i++) {
-        for (let choice = 0; choice < questions.length; choice++) {
-            htmlAnswer.innerText=questions[i].choices
-            
-        }
         htmlQuestion.innerText= questions[0].question
     }   
-
-          // questions.forEach((question) => {
-	// 	htmlQuestion.innerText = questions[0].question;
-	// });
-
-	// let choice = document.createElement('li');
-	// htmlAnswer.append(choice);
-	// questions.forEach((choices) => {
-	// 	choice.append(questions[0].choices);
-	// });
-	// console.log(questions['question'])
-	// htmlQuestion.innerText = questions[0].question
-	// htmlAnswer.innerText = questions[0].choices
-	// let choice document.createElement('button')
-	// choices.append
-	// question.forEach(element => {
-
-	// });
-
 
 }
 function reset(){
     score =0
     questionsLeft =10
     playButton.style.display='flex'
-    htmlAnswer.innerText=
-    htmlQuestion.innerText=''
+    
     
 }
 
