@@ -22,14 +22,17 @@ const questions = [
 			'Olaf of Freljord',
 			'Thor Laufeyson',
 		],
+        answer:1
 	},
 	{
-		question: 'The quater Anodite grandson of Maxwell Tennyson',
+		question: 'The quarter Anodite grandson of Maxwell Tennyson',
 		choices: ['Kevin Levin', 'Ben Tennyson', 'Clyde Fyfe', 'Flash Gordon'],
+        answer:2 
 	},
 	{
 		question: 'The name of the sword weilded by Eragon is ?',
 		choices: ['Riptide', 'Inheretence', 'Brisingr', 'Murtagh'],
+        answer:3
 	},
 	{
 		question: "Thor's hammer is named?",
@@ -92,9 +95,9 @@ function increaseScore() {
 }
 // console.log(questions[0].question)
 function questionCycle() {
-	for (let question = 0; question < questions.length; question++) {
+	for (let i = 0; i < questions.length; i++) {
         for (let choice = 0; choice < questions.length; choice++) {
-            htmlAnswer.innerText=questions[0].choices
+            htmlAnswer.innerText=questions[i].choices
             
         }
         htmlQuestion.innerText= questions[0].question
