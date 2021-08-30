@@ -7,7 +7,7 @@ const direction = document.getElementById('rules');
 const theRules = document.querySelector('.directions');
 const closeRules = document.querySelector('.close-rules');
 const htmlQuestion = document.getElementById('question');
-const htmlAnswer = document.getElementById('answer')
+const htmlAnswer = document.getElementById('answer');
 const questions = [
 	{
 		question: "What is the name of Superman's alter ego? ",
@@ -77,11 +77,11 @@ const questions = [
 ];
 /////////       State Variables        \\\\\\\\\
 let score = 0;
-let activeIndex =0
+let activeIndex = 0;
 let questionsLeft = 10;
-let currentQuestion={}
+let currentQuestion = {};
 let titleDisplay = document.querySelector('.head');
-let yourAnswer = ''
+let yourAnswer = '';
 ///////////////     Functions     \\\\\\\\\\\\\\\\\\\
 
 function startGame(event) {
@@ -90,59 +90,78 @@ function startGame(event) {
 	titleDisplay.style.display = 'none';
 	quit.style.display = 'inline';
 	questionCycle();
-    answerQuestion()
 }
+
+console.log(questions.length);
 
 function increaseScore() {
 	score++;
-	activeIndex ++
-	htmlAnswer.innerHTML=''
-	questionCycle()
+	activeIndex++;
+	htmlAnswer.innerHTML = '';
+	questionCycle();
 	currentScore.innerText = `Score:${score}`;
-	if (score === 10) {
-		currentScore.innerText = 'Score:Max';
-	}
 }
+
 // console.log(questions[0].question)
 function questionCycle() {
-	htmlQuestion.innerText= questions[activeIndex].question
+	htmlQuestion.innerText = questions[activeIndex].question;
 	questions[activeIndex].choices.forEach((choice) => {
 		// console.log(question);
 		// htmlAnswer=questions[choices].choices
-		 let li =document.createElement('button')
-		 li.innerText= choice
-		 li.addEventListener('click',(event)=>{
-			if (event.target.innerText ===questions[activeIndex].answer) {
-				increaseScore()
+		let li = document.createElement('button');
+		li.innerText = choice;
+
+		li.addEventListener('click', (event) => {
+			if (event.target.innerText === questions[activeIndex].answer) {
+				console.log(activeIndex);
+				increaseScore();
+				if (activeIndex===10) {
+					quit()
+				}
+			} else if (event.target.innerText != questions[activeIndex].answer) {
+				console.log(activeIndex);
+				passQuestion();
+				if (activeIndex === 10) {
+					quit();
+				}
 			}
-		 })
-		htmlAnswer.append(li)
+		});
+		htmlAnswer.append(li);
 	});
-
-
+	function passQuestion() {
+		activeIndex++;
+		htmlAnswer.innerHTML = '';
+		questionCycle();
+	}
 }
-function reset(){
-    score =0
-    questionsLeft =10
-    playButton.style.display='flex'
-    
-    
+function reset() {
+	score = 0;
+	questionsLeft = 10;
+	activeIndex = 0;
+	htmlAnswer.innerHTML = '';
+	htmlAnswer.removeChild();
+	if (score === 10 || activeIndex === questions.length) {
+		console.log('game over');
+	}
+	playButton.style.display = 'flex';
 }
 
 // function answerQuestion(event){
 // 	if ( ===event.tar) {
 // 		increaseScore()
-		
+
 // 	}
-	 
+
 // }
 function quitting() {
 	let imQuitting = prompt('Are You Sure');
 	if (imQuitting == 'Yes') {
 		score = 0;
 		questionsLeft = 10;
+		activeIndex =0
 		playButton.style.display = 'flex';
-
+		htmlAnswer.innerHTML = '';
+		htmlQuestion.innerText = '';
 	}
 }
 

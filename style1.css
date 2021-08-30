@@ -49,6 +49,9 @@ body{
 	z-index: 1;
 	overflow: auto;
 }
+#end{
+	display: none
+}
 #score{
 	font-weight: 300;
 }
