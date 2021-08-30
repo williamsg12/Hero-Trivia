@@ -9,11 +9,11 @@ const closeRules = document.querySelector('.close-rules');
 const htmlQuestion = document.getElementById('question');
 const htmlAnswer = document.getElementById('answer')
 const questions = [
-	(first = {
+	{
 		question: "What is the name of Superman's alter ego? ",
 		choices: ['Clark Kent', 'Kal-el', 'Conner Kent', 'Jon Kent'],
 		answer: 'Clark Kent',
-	}),
+	},
 	{
 		question: "What is the name of Thor's alter ego?",
 		choices: [
@@ -89,12 +89,15 @@ function startGame(event) {
 	playButton.style.display = 'none';
 	titleDisplay.style.display = 'none';
 	quit.style.display = 'inline';
-	questionCycle(question);
+	questionCycle();
     answerQuestion()
 }
 
 function increaseScore() {
 	score++;
+	activeIndex ++
+	htmlAnswer.innerHTML=''
+	questionCycle()
 	currentScore.innerText = `Score:${score}`;
 	if (score === 10) {
 		currentScore.innerText = 'Score:Max';
@@ -102,12 +105,19 @@ function increaseScore() {
 }
 // console.log(questions[0].question)
 function questionCycle() {
-questions.forEach((questions) => {
-	console.log(questions);
-	htmlQuestion.innerText= questions[0].question
-	// htmlAnswer=questions[choices].choices
-	answerQuestion();
-});
+	htmlQuestion.innerText= questions[activeIndex].question
+	questions[activeIndex].choices.forEach((choice) => {
+		// console.log(question);
+		// htmlAnswer=questions[choices].choices
+		 let li =document.createElement('button')
+		 li.innerText= choice
+		 li.addEventListener('click',(event)=>{
+			if (event.target.innerText ===questions[activeIndex].answer) {
+				increaseScore()
+			}
+		 })
+		htmlAnswer.append(li)
+	});
 
 
 }
@@ -119,11 +129,13 @@ function reset(){
     
 }
 
-function answerQuestion(){
-	if(yourAnswer === questions[questionsNum].answer)
-		increaseScore()
+// function answerQuestion(event){
+// 	if ( ===event.tar) {
+// 		increaseScore()
+		
+// 	}
 	 
-}
+// }
 function quitting() {
 	let imQuitting = prompt('Are You Sure');
 	if (imQuitting == 'Yes') {
