@@ -77,8 +77,7 @@ const questions = [
 ];
 /////////       State Variables        \\\\\\\\\
 let score = 0;
-// let questionsNum=0
-// overall number left
+let activeIndex =0
 let questionsLeft = 10;
 let currentQuestion={}
 let titleDisplay = document.querySelector('.head');
@@ -105,7 +104,7 @@ function increaseScore() {
 function questionCycle() {
 questions.forEach((questions) => {
 	console.log(questions);
-	// htmlQuestion= questions[question].question
+	htmlQuestion.innerText= questions[0].question
 	// htmlAnswer=questions[choices].choices
 	answerQuestion();
 });
@@ -121,7 +120,9 @@ function reset(){
 }
 
 function answerQuestion(){
-	if()
+	if(yourAnswer === questions[questionsNum].answer)
+		increaseScore()
+	 
 }
 function quitting() {
 	let imQuitting = prompt('Are You Sure');
