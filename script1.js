@@ -109,11 +109,14 @@ function questionCycle() {
 				if (event.target.innerText === questions[activeIndex].answer) {
 					increaseScore();
 					alert('Correct');
+					if (activeIndex === 10) {
+						reset();
+					}
 				} else if (event.target.innerText != questions[activeIndex].answer) {
 					alert('Incorrect');
 					passQuestion();
 					if (activeIndex === 10) {
-						quit();
+						reset()
 					}
 				}
 			});
@@ -125,15 +128,22 @@ function questionCycle() {
 			questionCycle();
 		}
 	} else if ((activeindex = questions.length)) {
-		quit();
+		reset();
 	}
 }
 function reset() {
-	score = 0;
-	activeIndex = 0;
-	htmlAnswer.innerHTML = '';
-	htmlAnswer.removeChild();
-	playButton.style.display = 'flex';
+	if (activeIndex === 10) {
+		alert('Game Over');
+		alert(`Your score was ${score}`);
+		score = 0;
+		currentScore.innerText = `Score:${score}`;
+		activeIndex = 0;
+		titleDisplay.style.display = 'flex';
+		playButton.style.display = 'flex';
+		quit.style.display='none'
+		htmlAnswer.innerHTML = '';
+		htmlQuestion.innerText = '';
+	}
 }
 
 function quitting() {
@@ -148,6 +158,7 @@ function quitting() {
 		playButton.style.display = 'flex';
 		htmlAnswer.innerHTML = '';
 		htmlQuestion.innerText = '';
+		quit.style.display = 'none';
 	}
 }
 
