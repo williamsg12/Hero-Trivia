@@ -140,6 +140,7 @@ function quitting() {
 	let imQuitting = prompt('Are You Sure');
 	if (imQuitting == 'Yes') {
 		alert('Game Over');
+		alert(`Your score was ${score}`)
 		score = 0;
 		currentScore.innerText = `Score:${score}`;
 		activeIndex = 0;
