@@ -24,10 +24,15 @@ This can run in your browser
 
 # **User-Stories**#
 --My users are players.
+
 --They want a game that works.
+
 --They want to know their score.
+
 --They want to know when correct or false.
+
 --They want to know when the game is over.
+
 --They want to be able to quit the game to reset  it .
 
 
@@ -37,5 +42,7 @@ This can run in your browser
 
 # **Unfinished Issues** #
 Music was added but didn't start automatically so it was removed.
+
 Play button shrinks after quitting.
+
 The score text also Shrinks after quitting.
