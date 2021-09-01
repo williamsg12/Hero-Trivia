@@ -1,5 +1,5 @@
 ///////////// Constant Variables \\\\\\\\\\\\\\\\\
-const playButton = document.querySelector('.play-parent');
+const playButton = document.querySelector('.play');
 const currentScore = document.getElementById('score');
 const quit = document.getElementById('quit');
 const direction = document.getElementById('rules');
