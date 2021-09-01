@@ -163,8 +163,6 @@ function quitting() {
 	}
 }
 
-// function showCorrectAnswer{}
-
 function showDirections() {
 	theRules.style.display = 'inline';
 }
@@ -174,7 +172,6 @@ function closeDirections() {
 }
 
 ///////////////     event listeners     \\\\\\\\\\\\\\\\\
-// Music
 
 playButton.addEventListener('click', startGame);
 
