@@ -87,6 +87,7 @@ function startGame(event) {
 	playButton.style.display = 'none';
 	titleDisplay.style.display = 'none';
 	quit.style.display = 'inline';
+	alert('Begin')
 	questionCycle();
 }
 
