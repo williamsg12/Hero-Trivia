@@ -27,12 +27,16 @@ body{
 .play {
     align-items: center;
 	padding: 20px;
-    background: red;
     border:5px double black;
-    border-radius: 50%;
-    width: 10%;
-	min-height: 40%;
-	margin: 0;
+  	padding: 12px 36px;
+	margin: 10px 0px;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 18px;
+	letter-spacing: 2px;
+	border-radius: 40px;
+	background: linear-gradient(90deg,#b85555,#fc5555);
 }
 .directions{
 	display: none;
@@ -65,10 +69,28 @@ body{
 	position: fixed;
 	right: 0%;
 	bottom: 30%;
+	padding: 12px 36px;
+	margin: 10px 0px;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 18px;
+	letter-spacing: 2px;
+	border-radius: 40px;
+	background: linear-gradient(90deg,#c89d01,#fc5555);
 }
 #quit{
 	display: none;
 	position: fixed;
 	left: 0%;
 	bottom: 30%;
+	padding: 12px 36px;
+	margin: 10px 0px;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 18px;
+	letter-spacing: 2px;
+	border-radius: 40px;
+	background: linear-gradient(90deg,#c80101,#fc5555);
 }
