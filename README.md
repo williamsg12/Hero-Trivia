@@ -8,9 +8,11 @@
 
 # **Technologies Used** #
 
-Github__
-VsCode__
-Google Chrome__
+Github\
+
+VsCode\
+
+Google Chrome\
 
 # **Instillation Instructions** #
 
