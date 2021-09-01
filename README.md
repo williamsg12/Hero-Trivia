@@ -17,7 +17,9 @@ Google Chrome
 # **Instillation Instructions** #
 
 Fork Repo 
-clone it down if youd like 
+
+clone it down if you'd like 
+
 This can run in your browser
 
 # **User-Stories**#
