@@ -23,18 +23,17 @@ body{
     
 }
 .play {
-    
     align-items: center;
-    justify-content: center;
-	padding: 15px;
+	padding: 20px;
     background: red;
     border:5px double black;
-    border-radius: 0px 20px 0px 20px;
-    width: 20%;
+    border-radius: 50%;
+    width: 10%;
 	min-height: 40%;
-   
+	margin: 0;
 }
 .directions{
+	display: none;
 	color: white;
 	height: 350px;
 	width: 550px;
@@ -47,13 +46,15 @@ body{
 }
 #score{
 	font-weight: 300;
-	
+	position: relative;
+	left: 0%;
+	bottom: 30%;
 }
 
 #rules{
 	position: fixed;
 	right: 0%;
-	bottom: 40%;
+	bottom: 30%;
 }
 #quit{
 	display: none;
