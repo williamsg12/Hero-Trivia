@@ -12,7 +12,8 @@ body{
 }
 
 .head {
-    position: center;
+    position: relative;
+	top: 40px;
 }
 
 .header {
@@ -34,9 +35,6 @@ body{
     border-radius: 0px 20px 0px 20px;
     width: 20%;
    
-}
-.bg-music{
-    display: hidden;
 }
 .directions{
     display: none;
